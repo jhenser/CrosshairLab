@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "Teal Ellipse",
+  "horizontal": false,
+  "vertical": false,
+  "dot": true,
+  "dot_size": 2,
+  "circle": true,
+  "circle_radius_x": 55,
+  "circle_radius_y": 20,
+  "circle_thickness": 2,
+  "outline": 1,
+  "color": "#2DD4BF",
+  "outline_color": "#171C20",
+  "opacity": 235
+}

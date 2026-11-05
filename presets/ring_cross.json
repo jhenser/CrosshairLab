@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "name": "Ring + Cross",
+  "horizontal": true,
+  "horizontal_length": 15,
+  "horizontal_gap": 30,
+  "horizontal_thickness": 3,
+  "vertical": true,
+  "vertical_length": 25,
+  "vertical_gap": 30,
+  "vertical_thickness": 2,
+  "circle": true,
+  "circle_radius_x": 23,
+  "circle_radius_y": 23,
+  "circle_thickness": 2,
+  "dot": true,
+  "dot_size": 2,
+  "outline": 1,
+  "color": "#00FF80",
+  "outline_color": "#151515"
+}

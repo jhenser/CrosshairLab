@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "Green Cross",
+  "horizontal": true,
+  "horizontal_length": 12,
+  "horizontal_gap": 5,
+  "horizontal_thickness": 3,
+  "vertical": true,
+  "vertical_length": 12,
+  "vertical_gap": 5,
+  "vertical_thickness": 3,
+  "circle": false,
+  "dot": true,
+  "dot_size": 3,
+  "color": "#00FF80",
+  "outline_color": "#111111",
+  "outline": 1,
+  "opacity": 255
+}

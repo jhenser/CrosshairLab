@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "White Circle",
+  "horizontal": false,
+  "vertical": false,
+  "dot": false,
+  "circle": true,
+  "circle_radius_x": 23,
+  "circle_radius_y": 23,
+  "circle_thickness": 3,
+  "outline": 1,
+  "color": "#FFFFFF",
+  "outline_color": "#151515",
+  "opacity": 255
+}
