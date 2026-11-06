@@ -1,4 +1,4 @@
-"""CrosshairLab v0.2: non-injected, click-through Windows overlay.
+"""CrosshairLab v0.2.1: non-injected, click-through Windows overlay.
 
 Controls a separately painted top-level transparent window. Does not access
 or interfere with any game's memory, rendering process, or network traffic.
@@ -22,7 +22,7 @@ if sys.platform != 'win32':
     raise SystemExit('CrosshairLab supports Windows 10/11 only.')
 
 USER32 = ctypes.windll.user32
-VK_RBUTTON, VK_X, VK_CONTROL, VK_MENU = 0x02, 0x58, 0x11, 0x12
+VK_X, VK_CONTROL, VK_MENU = 0x58, 0x11, 0x12
 WS_EX_TRANSPARENT, WS_EX_LAYERED = 0x20, 0x80000
 WS_EX_TOOLWINDOW, WS_EX_NOACTIVATE = 0x80, 0x08000000
 GWL_EXSTYLE, HWND_TOPMOST = -20, -1
@@ -133,7 +133,7 @@ class MainWindow(QMainWindow):
         except (OSError, ValueError, TypeError):
             self.profile = CrosshairProfile()
         self.overlay = Overlay(self.profile)
-        self.setWindowTitle('CrosshairLab v0.2 — 照準エディター')
+        self.setWindowTitle('CrosshairLab v0.2.1 — 照準エディター')
         self.resize(1110, 810)
         self._previous_hotkey = False
         self._syncing = False
@@ -191,7 +191,6 @@ class MainWindow(QMainWindow):
         grp, form = self.group(form_stack, '位置・表示')
         self.numeric(form, '画面中心から横へ', 'offset_x', -500, 500)
         self.numeric(form, '画面中心から縦へ', 'offset_y', -500, 500)
-        self.flag(form, '右クリック中は非表示（ADS）', 'hide_when_aiming')
         self.screen_combo = QComboBox()
         form.addRow('表示モニター', self.screen_combo)
         self.refresh_screens()
@@ -323,8 +322,7 @@ class MainWindow(QMainWindow):
         self.sync_visibility()
 
     def sync_visibility(self):
-        show = self.profile.visible and not (
-            self.profile.hide_when_aiming and pressed(VK_RBUTTON))
+        show = self.profile.visible
         if show and not self.overlay.isVisible():
             self.overlay.show()
             self.overlay.force_clickthrough()
@@ -337,8 +335,6 @@ class MainWindow(QMainWindow):
         if combo and not self._previous_hotkey:
             self.toggle_visibility()
         self._previous_hotkey = combo
-        if self.profile.hide_when_aiming:
-            self.sync_visibility()
 
     def toggle_visibility(self):
         self.profile.visible = not self.profile.visible

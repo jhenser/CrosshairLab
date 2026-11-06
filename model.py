@@ -1,4 +1,4 @@
-"""CrosshairLab v0.2 profile, backward compatibility, and testable geometry.
+"""CrosshairLab v0.2.1 profile, backward compatibility, and testable geometry.
 
 The rendering/UI layer depends on PySide6; this module uses only the stdlib.
 """
@@ -39,7 +39,6 @@ class CrosshairProfile:
     offset_x: int = 0
     offset_y: int = 0
     monitor: int = 0
-    hide_when_aiming: bool = False
     visible: bool = True
 
     def validated(self):
@@ -73,7 +72,7 @@ class CrosshairProfile:
                     and all(c in '0123456789abcdefABCDEF' for c in value[1:])):
                 raise ValueError(f'{key} must be a #RRGGBB color')
         for key in ('horizontal', 'vertical', 'circle', 'dot',
-                    'hide_when_aiming', 'visible'):
+                    'visible'):
             if type(getattr(self, key)) is not bool:
                 raise ValueError(f'{key} must be boolean')
         if type(self.version) is not int or self.version != 2:
